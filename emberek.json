@@ -1,0 +1,59 @@
+{
+    "emberek": [
+        {
+            "id": 1,
+            "nev": "bela",
+            "kor": 25
+        },
+        {
+            "id": 2,
+            "nev": "ferenc",
+            "kor": 46
+        },
+        {
+            "id": 3,
+            "nev": "anna",
+            "kor": 30
+        },
+        {
+            "id": 4,
+            "nev": "zoltan",
+            "kor": 40
+        },
+        {
+            "id": 5,
+            "nev": "maria",
+            "kor": 35
+        },
+        {
+            "id": 6,
+            "nev": "tamas",
+            "kor": 50
+        },
+        {
+            "id": 7,
+            "nev": "katinka",
+            "kor": 28
+        },
+        {
+            "id": 8,
+            "nev": "laszlo",
+            "kor": 55
+        },
+        {
+            "id": 9,
+            "nev": "dorottya",
+            "kor": 22
+        },
+        {
+            "id": 10,
+            "nev": "gyorgy",
+            "kor": 60
+        },
+        {
+            "id": 11,
+            "nev": "renata",
+            "kor": 33
+        }
+    ]
+}
