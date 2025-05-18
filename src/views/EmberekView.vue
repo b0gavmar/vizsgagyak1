@@ -2,12 +2,19 @@
 import { useEmberStore } from "@/stores/emberek";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { useToast } from "vue-toastification";
 
 const emberStore = useEmberStore();
 const router = useRouter();
+const toast = useToast();
 
 const modosit = (emberid)=>{
   router.push("/emberek/"+emberid)
+}
+
+const torol = async(emberid)=>{
+  await emberStore.deleteData(emberid);
+  toast.success("sikeres torles")
 }
 
 onMounted(() => {
@@ -33,7 +40,7 @@ onMounted(() => {
         </div>
         <div class="card-footer text-center">
           <button class="btn btn-primary mx-1" @click="modosit(e.id)">módosít</button>
-          <button class="btn btn-danger mx-1">töröl</button>
+          <button class="btn btn-danger mx-1" @click="torol(e.id)">töröl</button>
         </div>
       </div>
     </div>

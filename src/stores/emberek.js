@@ -19,24 +19,39 @@ export const useEmberStore = defineStore("ember", () => {
      */
   };
 
-  const getDataById =async(id)=>{
-    const resp = await axios.get(url+"/emberek/"+id);
+  const getDataById = async (id) => {
+    const resp = await axios.get(url + "/emberek/" + id);
     ember.value = resp.data;
-  }
+  };
 
-  const editDataById = async (id,ujadatok) => {
-    await axios.put(url + "/emberek/" + id,ujadatok);
+  const editDataById = async (id, ujadatok) => {
+    await axios.put(url + "/emberek/" + id, ujadatok);
   };
 
   const newData = async (ujember) => {
     await axios.post(url + "/emberek/", ujember);
   };
 
-  const getNextId = () => {
+  const getNextId = async () => {
+    await fetchAll();
     if (emberek.value.length === 0) return 1;
     const maxId = Math.max(...emberek.value.map((e) => e.id));
     return maxId + 1;
   };
 
-  return { emberek, ember, fetchAll, getDataById, editDataById , newData, getNextId};
+  const deleteData = async (ujember) => {
+    await axios.delete(url + "/emberek/"+ujember);
+    await fetchAll();
+  };
+
+  return {
+    emberek,
+    ember,
+    fetchAll,
+    getDataById,
+    editDataById,
+    newData,
+    getNextId,
+    deleteData,
+  };
 });
