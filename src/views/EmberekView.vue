@@ -2,6 +2,7 @@
   <div class="about">
     <h1>Emberek</h1>
   </div>
+  <div></div>
 </template>
 
 <style scoped></style>
