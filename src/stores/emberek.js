@@ -9,7 +9,7 @@ export const useEmberStore = defineStore('ember', () => {
 
   const fetchAll = async() => {
     const resp = await axios.get(url+"/emberek")
-    emberek.value = resp
+    emberek.value = resp.data
   }
 
   return { emberek, fetchAll }
