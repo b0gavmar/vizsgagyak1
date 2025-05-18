@@ -1,8 +1,14 @@
 <script setup>
 import { useEmberStore } from "@/stores/emberek";
 import { onMounted } from "vue";
+import { useRouter } from "vue-router";
 
 const emberStore = useEmberStore();
+const router = useRouter();
+
+const modosit = (emberid)=>{
+  router.push("/emberek/"+emberid)
+}
 
 onMounted(() => {
   emberStore.fetchAll();
@@ -20,12 +26,13 @@ onMounted(() => {
         v-for="e in emberStore.emberek"
         :key="e.id"
       >
-        <p class="card-title">{{ e.nev }}</p>
+        <p class="card-title fs-2 fw-bold">{{ e.nev }}</p>
         <div class="card-body">
           <p class="card-text">{{ e.kor }} év</p>
+          <p class="card-text">Neme: {{ e.nem }}</p>
         </div>
         <div class="card-footer text-center">
-          <button class="btn btn-primary mx-1">módosít</button>
+          <button class="btn btn-primary mx-1" @click="modosit(e.id)">módosít</button>
           <button class="btn btn-danger mx-1">töröl</button>
         </div>
       </div>
