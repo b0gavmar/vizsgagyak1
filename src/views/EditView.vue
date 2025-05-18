@@ -6,7 +6,7 @@
         nem: <select min="1" max="120" class="form-select" v-model="currentEmber.nem" @change="nemvaltas()">
             <option v-for="nem in nemek" :value="nem"> {{ nem =="ferfi" ? "Férfi": "Nő" }}</option>
         </select>
-        
+        <button class="btn btn-primary mt-2" @click="ment()">Mentés</button>
     </div>
 </template>
 
@@ -40,6 +40,10 @@ onMounted(async()=>{
     currentEmber.value = emberStore.ember;
 })
 
+const ment =async ()=>{
+    await emberStore.editDataById(currentEmber.id || route.params.emberid,currentEmber.value)
+    toast.success("sikeres mentés")
+}
 
 </script>
 
